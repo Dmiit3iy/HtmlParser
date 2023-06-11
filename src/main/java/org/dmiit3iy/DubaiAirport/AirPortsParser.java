@@ -58,7 +58,7 @@ public class AirPortsParser {
 
         }
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("H");
-        System.out.println("В промежуток с "+hour+" до "+String.valueOf( LocalTime.parse(hour,formatter).plusHours(1))+" запланировано "+ count2+" прилетов");    }
+        System.out.println("В промежуток с "+hour+"00 до "+String.valueOf( LocalTime.parse(hour,formatter).plusHours(1))+" запланировано "+ count2+" прилетов");    }
 
     /**
      * A method for determining the airport's double encoding
