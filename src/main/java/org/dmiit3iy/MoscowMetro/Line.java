@@ -1,5 +1,7 @@
 package org.dmiit3iy.MoscowMetro;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.dmiit3iy.MoscowMetro.Station;
 
 import java.util.ArrayList;
@@ -17,6 +19,7 @@ public class Line {
     }
 
     private String name;
+    @JsonManagedReference
     private ArrayList<Station> stations;
 
     public String getName() {

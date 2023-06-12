@@ -1,9 +1,14 @@
 package org.dmiit3iy.MoscowMetro;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.Objects;
 
 public class Station {
     private String nameStation;
+    @JsonBackReference
+
     private Line lineName;
 
     public Station(String nameStation, Line lineName) {

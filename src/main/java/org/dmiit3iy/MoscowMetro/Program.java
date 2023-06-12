@@ -1,12 +1,18 @@
 package org.dmiit3iy.MoscowMetro;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.function.ToDoubleBiFunction;
 
 public class Program {
     public static void main(String[] args) {
@@ -48,10 +54,23 @@ public class Program {
             System.out.println(z);
             System.out.println();
         }
+        toJason(lineArrayList);
     }
 
-    public static void toJason(ArrayList<Line> lines){
+    /**
+     * Метод для сериализации в JASON
+     * @param lineArrayList
+     * @throws IOException
+     */
+    public static void toJason(ArrayList<Line> lineArrayList) throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String str = objectMapper.writeValueAsString(lineArrayList);
+
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("Metro.json"))) {
+            bufferedWriter.write(str);
+        }
 
     }
+
 
 }
